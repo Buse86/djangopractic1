@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Написать письмо</title>
+</head>
+<body>
+    <a href="{% url 'inbox' %}">← Назад во входящие</a>
+    <h1>Новое сообщение</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <p><input type="text" name="recipient" placeholder="Логин получателя" required style="width: 300px;"></p>
+        <p><input type="text" name="subject" placeholder="Тема письма" required style="width: 300px;"></p>
+        <p><textarea name="body" placeholder="Текст сообщения" rows="10" style="width: 300px;"></textarea></p>
+        <button type="submit" style="padding: 10px 20px; background: green; color: white; border: none; cursor: pointer;">
+            Отправить письмо
+        </button>
+    </form>
+</body>
+</html>

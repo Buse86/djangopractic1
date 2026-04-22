@@ -1,0 +1,18 @@
+<h1>{{ folder.name }}</h1>
+<ul>
+  {% for email in emails %}
+    <li>
+      <a href="{% url 'view_email' e.id %}">{{ email.subject }}</a> 
+      от {{ email.sender }}
+      <form action="{% url 'move_email' e.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <select name="folder">
+          {% for f in folders %}
+            <option value="{{ f.name }}">{{ f.name }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit">Переместить</button>
+      </form>
+    </li>
+  {% endfor %}
+</ul>

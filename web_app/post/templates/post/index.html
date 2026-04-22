@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 100px; background: #f4f4f9; }
+        .container { background: white; padding: 40px; border-radius: 10px; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn { display: inline-block; padding: 10px 20px; margin: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn-blue { background: #007bff; color: white; }
+        .btn-green { background: #28a745; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать! 📧</h1>
+        <p>личная почтовая система</p>
+        
+        {% if user.is_authenticated %}
+            <p>Привет, <strong>{{ user.username }}</strong>!</p>
+            <a href="{% url 'inbox' %}" class="btn btn-blue">Перейти в почту</a>
+        {% else %}
+            <p>Чтобы читать и отправлять письма, нужно войти.</p>
+            <a href="/admin/" class="btn btn-green">Войти через Админку</a>
+        {% endif %}
+    </div>
+</body>
+</html>

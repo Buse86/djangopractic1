@@ -1,0 +1,8 @@
+<h1>Новое письмо!</h1>
+<form method="post">
+  {% csrf_token %}
+  <p>Тема: <input type="text" name="subject"></p>
+  <p>Получатель: <input type="text" name="recipient"></p>
+  <p>Текст: <textarea name="body"></textarea></p>
+  <button type="submit">Отправить</button>
+</form>
