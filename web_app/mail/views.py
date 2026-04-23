@@ -38,14 +38,14 @@ def send_email(request):
             is_read=True  
         )
         
-        EmailMessage.objects.create(
-            sender=request.user,
-            recipient=recipient,
-            subject=subject,
-            body=body,
-            folder=recipient_folder,
-            is_read=False
-        )
+        # EmailMessage.objects.create(
+        #     sender=request.user,
+        #     recipient=recipient,
+        #     subject=subject,
+        #     body=body,
+        #     folder=recipient_folder,
+        #     is_read=False
+        # )
         
         return redirect('email_list', folder_name='Исходящие')
     
